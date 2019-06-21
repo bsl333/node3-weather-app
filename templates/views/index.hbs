@@ -3,12 +3,19 @@
 
 <head>
   <link rel="stylesheet" href="/css/styles.css">
-  <script type="text/javascript" src="/js/main.js"></script>
+  <script defer type="text/javascript" src="/js/main.js"></script>
 </head>
 
 <body>
   {{>header}}
   <p>{{title}}</p>
+  <form>
+    <input type="text" name="address" id="address" placeholder="Enter an address"/>
+    <button type="submit">Search</button>
+  </form>
+
+  <p id="message-1"></p>
+  <p id="message-2"></p>
   {{>footer}}
 </body>
 

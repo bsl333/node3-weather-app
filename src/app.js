@@ -1,11 +1,13 @@
 const path = require('path');
 const express = require('express');
-require('dotenv').config();
 const hbs = require('hbs');
+require('dotenv').config();
+
 const fetchGeocode = require('./utils/geocode');
 const fetchForecast = require('./utils/forecast');
 
 const app = express();
+app.use(require('cors')());
 const PORT = process.env.PORT || 3003;
 
 //config paths for static files, hbs, and partials
@@ -56,11 +58,11 @@ app.get('/weather', (req, res) => {
   }
   fetchGeocode(address, (err, { lat, long, placeName: location } = {}) => {
     if (err) {
-      return res.send({err});
+      return res.send({ error: err });
     }
     fetchForecast(lat, long, (err, { temperature, precipProbability, summary } = {}) => {
       if (err) {
-        return res.send({err});
+        return res.send({ err });
       }
       res.json({
         location,

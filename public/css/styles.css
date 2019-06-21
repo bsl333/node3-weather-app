@@ -1,3 +1,17 @@
 p {
   color: blue;
 }
+
+
+input {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+  border: solid 1px #888888;
+  background: #888888;
+  color: white;
+  padding: 8px;
+}

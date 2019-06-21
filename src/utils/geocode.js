@@ -12,7 +12,7 @@ const fetchCoordinates = (location, cb) => {
     }
     const { features } = body;
     if (!features || !features.length) {
-      cb(`Location (${location}) not found`)
+      cb(`Unable to find location. Please try another search`)
     } else {
       const { place_name: placeName, center: [long, lat] } = features[0];
       cb(undefined, { lat, long, placeName } );
