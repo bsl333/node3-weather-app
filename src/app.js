@@ -28,7 +28,7 @@ hbs.registerPartials(pathToPartials);
 // routes
 app.get('', (req, res) => {
   res.render('index', {
-    title: 'Weather title',
+    title: 'Weather',
     name: 'Branden'
   });
 });
