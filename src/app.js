@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
-require('dotenv').config();
+const app = express();
 
+require('dotenv').config();
 const fetchGeocode = require('./utils/geocode');
 const fetchForecast = require('./utils/forecast');
 
-const app = express();
 app.use(require('cors')());
 const PORT = process.env.PORT || 3003;
 
@@ -17,8 +17,6 @@ const pathToPartials = path.join(__dirname, '..', 'templates', 'partials');
 
 // setup path for static files
 app.use(express.static(publicPath));
-
-
 
 //setup handlbar config
 app.set('view engine', 'hbs');
