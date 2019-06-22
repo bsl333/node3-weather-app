@@ -58,15 +58,13 @@ app.get('/weather', (req, res) => {
     if (err) {
       return res.send({ error: err });
     }
-    fetchForecast(lat, long, (err, { temperature, precipProbability, summary } = {}) => {
+    fetchForecast(lat, long, (err, forecastResp) => {
       if (err) {
         return res.send({ err });
       }
       res.json({
-        location,
-        summary,
-        temperature,
-        precipProbability,
+        ...forecastResp,
+        location
       });
     });
   });

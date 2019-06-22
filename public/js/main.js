@@ -8,7 +8,7 @@ form.addEventListener('submit', (e) => {
   message1.textContent = 'Loading...';
   message2.textContent = '';
   const address = document.getElementById('address').value
-  fetch(`http://localhost:3003/weather?address=${address}`)
+  fetch(`/weather?address=${address}`)
     .then(res => res.json())
     .then(res => {
       if(res.error) {
@@ -17,6 +17,6 @@ form.addEventListener('submit', (e) => {
       }
 
       message1.textContent = res.location;
-      message2.textContent = `Summary: ${res.summary} With a temperature of ${res.temperature}`
+      message2.textContent = `${res.summary} It is currently ${res.temperature} degrees out. The high is ${res.temperatureMax} with a low of ${res.temperatureMin}. There is a currenlty a ${res.precipProbability * 100}% chance of rain.`
     });
 })
